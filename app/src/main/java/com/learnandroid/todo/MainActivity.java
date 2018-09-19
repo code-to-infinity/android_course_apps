@@ -12,10 +12,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
-
-    ItemStore store;
-    ListView lvItems;
+    private ItemStore store;
+    // holds reference to
+    private ListView lvItems;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         initListView(itemsAdapter);
     }
 
+    /* Invoked when the user taps the Add Button*/
     public void addItem(View view) {
         EditText txtAdd = (EditText) findViewById(R.id.txtAdd);
         String txt = txtAdd.getText().toString();
@@ -59,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /***
+     * Gives API to list, add and delete items.
+     */
     public class ItemStore {
         private ArrayList<String> items;
         private ArrayAdapter<String> itemsAdapter;
